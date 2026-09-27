@@ -5,6 +5,8 @@ on:
         branches: ["main"]
         paths: 
             - "src/**"
+            - "readme.MD"
+
 jobs: # multiple jobs we can create to run either paraller or sequencial.
     print_message:
         runs-on: ubuntu-latest
