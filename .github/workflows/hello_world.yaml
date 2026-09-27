@@ -1,0 +1,15 @@
+name: "Github Actions practical"
+on:
+    workflow_dispatch:
+jobs: # multiple jobs we can create to run either paraller or sequencial.
+    print_message:
+        runs-on: ubuntu-latest
+        steps:
+            - name: "printing welcome message"
+              run: echo "Welcome"
+            - name: "printing second message"
+              run: echo "Bye"
+            - name: "multiple messages"
+              run: |
+                echo "1st message"
+                echo "2nd message"
