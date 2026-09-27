@@ -6,6 +6,8 @@ on:
         paths: 
             - "src/**"
             - "readme.MD"
+    pull_request: 
+        branches: ["main"]
 
 jobs: # multiple jobs we can create to run either paraller or sequencial.
     print_message:
