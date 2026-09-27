@@ -1,6 +1,10 @@
 name: "Github Actions practical"
 on:
-    workflow_dispatch:
+    workflow_dispatch: # manual trigger.
+    push:
+        branches: ["main"]
+        paths: 
+            - "src/**"
 jobs: # multiple jobs we can create to run either paraller or sequencial.
     print_message:
         runs-on: ubuntu-latest
