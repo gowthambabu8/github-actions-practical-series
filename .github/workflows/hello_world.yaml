@@ -45,7 +45,11 @@ jobs: # multiple jobs we can create to run either paraller or sequencial.
           - run: |
               echo "Repository variable data:: ${{ vars.SYNC_APP }}"
               echo "Env variable :: ${{vars.INSTANCES}}"
-          
+          - name: Default variables
+            run: |
+              - echo $GITHUB_REPOSITORY
+              - echo $GITHUB_REF_NAME
+              - echo $RUNNER_OS
     
     secrets:
         runs-on: ubuntu-slim
