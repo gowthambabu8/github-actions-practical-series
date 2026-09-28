@@ -46,7 +46,11 @@ jobs: # multiple jobs we can create to run either paraller or sequencial.
               echo "Repository variable data:: ${{ vars.SYNC_APP }}"
               echo "Env variable :: ${{vars.INSTANCES}}"
           
+    
+    secrets:
+        runs-on: ubuntu-slim
+        environment: ${{ inputs.ENV }}
+        steps:
           - run: |
               echo "Repository secret data:: ${{ secrets.SONARQUBE_SECRET}}"
               echo "Env secret data:: ${{ secrets.SONARQUBE_TOKEN }}"
-
