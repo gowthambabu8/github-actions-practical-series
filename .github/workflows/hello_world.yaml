@@ -8,7 +8,10 @@ on:
             - "readme.MD"
     pull_request: 
         branches: ["main"]
+        types: ["opened","reopened","synchronize"]
 
+env:
+    APP_NAME: "Happy Learning"
 jobs: # multiple jobs we can create to run either paraller or sequencial.
     print_message:
         runs-on: ubuntu-latest
@@ -21,3 +24,9 @@ jobs: # multiple jobs we can create to run either paraller or sequencial.
               run: |
                 echo "1st message"
                 echo "2nd message"
+    
+    variables:
+        runs-on: ubuntu-slim
+        steps:
+          - run: |
+              echo "Application name is $APP_NAME"
