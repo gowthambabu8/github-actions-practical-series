@@ -27,8 +27,13 @@ jobs: # multiple jobs we can create to run either paraller or sequencial.
     
     variables: #job 2
         runs-on: ubuntu-slim
+        environment: DEV
         env:
           APP_NAME: "HAPPY LEARNING"
         steps:
           - run: |
               echo "Application name is $APP_NAME"
+          - run: |
+              echo "Repository variable data:: ${{ vars.SYNC_APP }}"
+              echo "Env variable :: ${{vars.INSTANCES}}"
+
