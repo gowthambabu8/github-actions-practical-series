@@ -13,7 +13,7 @@ on:
 env:
     APP_NAME: "Happy Learning"
 jobs: # multiple jobs we can create to run either paraller or sequencial.
-    print_message:
+    print_message: # job1
         runs-on: ubuntu-latest
         steps:
             - name: "printing welcome message"
@@ -25,8 +25,10 @@ jobs: # multiple jobs we can create to run either paraller or sequencial.
                 echo "1st message"
                 echo "2nd message"
     
-    variables:
+    variables: #job 2
         runs-on: ubuntu-slim
+        env:
+          APP_NAME: "HAPPY LEARNING"
         steps:
           - run: |
               echo "Application name is $APP_NAME"
