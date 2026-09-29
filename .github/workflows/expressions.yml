@@ -58,4 +58,15 @@ jobs:
             - name: branch name ends with dev1
               if: endsWith(github.ref_name, 'dev1')
               run: echo "Deploying hotfix"
+    
+    status_checks:
+        runs-on: ubuntu-slim
+        steps:
+            - name: success always
+              if: success()
+              run: echo "Always success"
+            
+            - name: failure always
+              if: failure()
+              run: echo "Always failure"
         
