@@ -47,5 +47,11 @@ jobs:
             - name: skips test executions
               if: contains(github.event.head_commit.message, 'skips-test')
               run: echo "Skipping test cases execution"
-              
+            
+            # github.ref -> refs/heads/main
+            # github.ref_name -> main
+            # feature/release_1 feature/release_2
+            - name: branch name starts with feature
+              if: startsWith(github.ref_name, 'main')
+              run: echo "Deploying to main branch"
         
