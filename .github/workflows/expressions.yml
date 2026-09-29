@@ -52,6 +52,6 @@ jobs:
             # github.ref_name -> main
             # feature/release_1 feature/release_2
             - name: branch name starts with feature
-              if: startsWith(github.ref_name, 'main')
-              run: echo "Deploying to main branch"
+              if: startsWith(github.ref_name, 'feature')
+              run: echo "Deploying to feature branch"
         
