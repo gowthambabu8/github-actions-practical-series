@@ -5,6 +5,7 @@ jobs:
         runs-on: ubuntu-latest
         outputs:
           coverage: ${{ steps.cov.outputs.value }}
+        if: failure()
         steps:
             - name: check for main branch
               if: github.ref == 'refs/heads/main'
@@ -32,6 +33,7 @@ jobs:
     
     logical_checks:
         runs-on: ubuntu-latest
+        if: failure()
         steps:
             - name: check for push event and into main branch
               if: github.ref == 'refs/heads/main' && github.event_name == 'push'
@@ -43,6 +45,7 @@ jobs:
     
     string_checks:
         runs-on: ubuntu-latest
+        if: failure()
         steps:
             - name: skips test executions
               if: contains(github.event.head_commit.message, 'skips-test')
