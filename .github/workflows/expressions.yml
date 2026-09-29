@@ -3,6 +3,9 @@ on: [push, pull_request]
 jobs:
     conditional_checks:
         runs-on: ubuntu-latest
+        outputs:
+          coverage: ${{ steps.cov.outputs.value }}
+          score: 1
         steps:
             - name: check for main branch
               if: github.ref == 'refs/heads/main'
@@ -15,3 +18,15 @@ jobs:
             - name: check for stage branch
               if: github.ref == 'refs/heads/stage'
               run: 'Deploying to stage branch'
+            
+            - name: assign coverage score
+              id: cov
+              run: echo "value=80" >> $GITHUB_OUTPUT
+    
+    conditional_checks_deploy:
+        runs-on: ubuntu-latest
+        needs: conditional_checks
+        steps:
+            - name: validate coverage score
+              if: needs.conditional_checks.outputs.coverage > 75
+              run: echo "Approved to deploy to Dev environment"
