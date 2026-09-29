@@ -1,0 +1,13 @@
+name: Expressions
+on: [push, pull_request]
+jobs:
+    conditional_checks:
+        runs-on: ubuntu-latest
+        steps:
+            - name: check for main branch
+              if: github.ref == 'refs/heads/main'
+              run: echo "Deploying to main branch"
+            
+            - name: check for event other than pull request
+              if: github.event_name != 'pull_request'
+              run: echo "Do not execute sonarqube, checkmarx"
