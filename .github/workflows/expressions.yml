@@ -1,5 +1,5 @@
 name: Expressions
-on: [push, pull_request]
+on: [push, pull_request,workflow_dispatch]
 jobs:
     conditional_checks:
         runs-on: ubuntu-latest
