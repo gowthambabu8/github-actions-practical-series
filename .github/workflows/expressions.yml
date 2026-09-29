@@ -11,3 +11,7 @@ jobs:
             - name: check for event other than pull request
               if: github.event_name != 'pull_request'
               run: echo "Do not execute sonarqube, checkmarx"
+            
+            - name: check for stage branch
+              if: github.ref == 'refs/heads/stage'
+              run: 'Deploying to stage branch'
