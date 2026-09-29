@@ -70,6 +70,10 @@ jobs:
               run: echo "Always success"
             
             - name: failure always
+              id: failure_step
               if: failure()
               run: echo "Always failure"
+            
+            - run: echo ${{ steps.failure_step.outputs.value }}
+            - run: echo ${{ steps.failure_step.outcome }}
         
