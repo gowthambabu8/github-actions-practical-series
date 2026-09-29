@@ -28,5 +28,5 @@ jobs:
         needs: conditional_checks
         steps:
             - name: validate coverage score
-              if: needs.conditional_checks.outputs.coverage > 75
+              if: needs.conditional_checks.outputs.coverage > 85
               run: echo "Approved to deploy to Dev environment"
