@@ -40,4 +40,11 @@ jobs:
             - name: check for push event or into main branch
               if: github.ref == 'refs/heads/main' ||  github.event_name == 'pull_request'
               run: echo "Deploying to Dev for push into main branch usong any condition"
+    
+    string_checks:
+        runs-on: ubuntu-latest
+        steps:
+            - name: skips test executions
+              if: contains(github.event.head_commit.message, 'skips-test')
+              run: echo "Skipping test cases execution"
         
