@@ -58,3 +58,23 @@ jobs:
 
             - run: echo "Deploying code in region ${{ matrix.region }} and env ${{ matrix.env }}"
             # us-east-1 Dev us-east-2 Dev
+    
+    strategy-include-exclude:
+        runs-on: ubuntu-slim
+        strategy:
+            matrix:
+                env: ["Dev", "Stage", "Pre-Prod"] # Dev 1 Dev 2 Stage 1 Stage 2 Pre-Prod 1 Pre-Prod 2
+                region: ["us-east-1", "us-east-2"]
+                include:
+                    - env: "Prod"
+                      region: "us-east-3" # Dev 1 Dev 2 Stage 1 Stage 2 Pre-Prod 1 Pre-Prod 2 Prod 3
+                exclude:
+                    - env: "Pre-Prod" # Dev 1 Dev 2 Stage 1 Stage 2 Prod 3
+                
+    
+        steps:
+            - run: echo "Deploying code in environment ${{ matrix.env }} and region ${{ matrix.region }}"
+            # Dev us-east-1 Stage us-east-1 Pre-Prod us-east-1
+
+            - run: echo "Deploying code in region ${{ matrix.region }} and env ${{ matrix.env }}"
+            # us-east-1 Dev us-east-2 Dev
