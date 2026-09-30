@@ -67,7 +67,7 @@ jobs:
                 region: ["us-east-1", "us-east-2"]
                 include:
                     - env: "Prod"
-                      #region: "us-east-3" # Dev 1 Dev 2 Stage 1 Stage 2 Pre-Prod 1 Pre-Prod 2 Prod 3
+                      region: "us-east-3" # Dev 1 Dev 2 Stage 1 Stage 2 Pre-Prod 1 Pre-Prod 2 Prod 3
                 exclude:
                     - env: "Pre-Prod" # Dev 1 Dev 2 Stage 1 Stage 2 Prod 3
                 
@@ -78,3 +78,19 @@ jobs:
 
             - run: echo "Deploying code in region ${{ matrix.region }} and env ${{ matrix.env }}"
             # us-east-1 Dev us-east-2 Dev
+    
+    strategy-fail-fast:
+        runs-on: ${{ matrix.os }}
+        strategy:
+            fail-fast: true
+            matrix:
+                os: ["ubuntu-latest","windows-latest"]
+                node: [18,20]
+                
+        steps:
+            - uses: actions/checkout@v4
+            - uses: actions/setup-node@v4
+              with:
+                node-version: ${{ matrix.node }}
+            - run: npm ci
+            - run: npm test
