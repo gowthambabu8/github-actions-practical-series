@@ -13,3 +13,16 @@ jobs:
 
             - run: echo "Deploying code in region ${{ matrix.region }} and env ${{ matrix.env }}"
             # us-east-1 Dev us-east-2 Dev
+    
+    test-2:
+        runs-on: ubuntu-slim
+        strategy:
+            matrix:
+                region: ["us-east-1", "us-east-2"]
+                env: ["Dev", "Stage", "Pre-Prod"]
+        steps:
+            - run: echo "Deploying code in environment ${{ matrix.env }} and region ${{ matrix.region }}"
+            # Dev us-east-1 Stage us-east-1 Pre-Prod us-east-1
+
+            - run: echo "Deploying code in region ${{ matrix.region }} and env ${{ matrix.env }}"
+            # us-east-1 Dev us-east-2 Dev
