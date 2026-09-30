@@ -67,7 +67,7 @@ jobs:
                 region: ["us-east-1", "us-east-2"]
                 include:
                     - env: "Prod"
-                      region: "us-east-3" # Dev 1 Dev 2 Stage 1 Stage 2 Pre-Prod 1 Pre-Prod 2 Prod 3
+                      #region: "us-east-3" # Dev 1 Dev 2 Stage 1 Stage 2 Pre-Prod 1 Pre-Prod 2 Prod 3
                 exclude:
                     - env: "Pre-Prod" # Dev 1 Dev 2 Stage 1 Stage 2 Prod 3
                 
