@@ -82,6 +82,7 @@ jobs:
     
     download-matrix:
         runs-on: ubuntu-slim
+        needs: upload-matrix
         steps:
             - uses: actions/download-artifact@v4
               with:
@@ -90,6 +91,6 @@ jobs:
                 path: matrix-download/
             - run: |
                 ls -R matrix-download
-                cat matrix-download/*
+                cat matrix-download/*.txt
     
               
