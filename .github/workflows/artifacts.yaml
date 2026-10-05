@@ -56,4 +56,4 @@ jobs:
               with:
                 name: upload-options
                 path: out123
-                if-no-files-found: error
+                if-no-files-found: ignore
