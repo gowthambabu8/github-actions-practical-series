@@ -75,10 +75,10 @@ jobs:
               with: 
                 name: build_${{matrix.version}}
                 path: out/
-            - uses: actions/download-artifact@v4
-              with:
-                name: build_${{matrix.version}}
-                path: matrix-download/
+            # - uses: actions/download-artifact@v4
+            #   with:
+            #     name: build_${{matrix.version}}
+            #     path: matrix-download/
     
     download-matrix:
         runs-on: ubuntu-slim
