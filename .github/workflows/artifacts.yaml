@@ -1,0 +1,20 @@
+name: Artifact upload and download
+on: ["push","pull_request", "workflow_dispatch"]
+jobs:
+    upload-basic:
+        runs-on: ubuntu-slim
+        steps:
+            - run: |
+                mkdir -p out
+                echo "Build and upload" > out/build_file.txt
+            - uses: actions/upload-artifact@v4
+              with:
+                name: upload-basic
+                path: out/
+    download-basic:
+        runs-on: ubuntu-slim
+        steps:
+            - uses: actions/download-artifact@v4
+              with:
+                name: upload-basic
+                path: downloaded/
