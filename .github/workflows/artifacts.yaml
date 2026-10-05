@@ -13,6 +13,7 @@ jobs:
                 path: out/
     download-basic:
         runs-on: ubuntu-slim
+        needs: upload-basic
         steps:
             - uses: actions/download-artifact@v4
               with:
