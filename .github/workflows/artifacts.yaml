@@ -91,6 +91,6 @@ jobs:
                 path: matrix-download/
             - run: |
                 ls -R matrix-download
-                cat matrix-download/build_*/*.txt
+                cat matrix-download/*/*.txt
     
               
