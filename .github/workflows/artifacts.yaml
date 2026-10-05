@@ -79,4 +79,17 @@ jobs:
               with:
                 name: build_${{matrix.version}}
                 path: matrix-download/
+    
+    download-matrix:
+        runs-on: ubuntu-slim
+        steps:
+            - uses: actions/download-artifact@v4
+              with:
+                pattern: build_*
+                merge-files: true
+                path: matrix-download/
+            - run: |
+                ls -R matrix-download
+                cat matrix-download/*
+    
               
