@@ -22,3 +22,23 @@ jobs:
             - run: |
                 ls -R downloaded/
                 cat downloaded/*
+    
+    upload-multiple:
+        runs-on: ubuntu-slim
+        steps:
+            - run: |
+                mkdir -p out
+                echo "Build number ${{github.sha}}" > out/build_${{github.sha}}.txt
+                echo "Build number ${{github.sha}}" > out/build_${{github.sha}}.txt
+                echo "Build number ${{github.sha}}" > out/build_${{github.sha}}.txt
+            - uses: actions/upload-artifact@v4
+              with:
+                name: upload-multiple
+                path: out/
+            - uses: actions/download-artifact@v4
+              with:
+                name: upload-multiple
+                path: download-multiple/
+            - run: |
+                ls -R download-multiple
+                cat download-multiple/*
