@@ -31,6 +31,9 @@ jobs:
                 echo "Build number ${{github.sha}}" >> out/build_${{github.sha}}.txt
                 echo "Build number ${{github.sha}}" >> out/build_${{github.sha}}.txt
                 echo "Build number ${{github.sha}}" >> out/build_${{github.sha}}.txt
+                echo "Build number 1" >> out/build_1.txt
+                echo "Build number 2" >> out/build_2.txt
+                echo "Build number 3" >> out/build_3.txt
             - uses: actions/upload-artifact@v4
               with:
                 name: upload-multiple
