@@ -57,3 +57,26 @@ jobs:
                 name: upload-options
                 path: out123
                 if-no-files-found: ignore
+                retention-days: 1 # 90 days default
+                compression-level: 0 # 0 to 9
+                overwrite: false
+                include-hidden-files: true #.coverage files
+    
+    upload-matrix:
+        runs-on: ubuntu-slim
+        strategy:
+            matrix:
+                version: [18,19,20]
+        steps:
+            - run: | 
+                mkdir -p out
+                echo "Build version is ${{matrix.version}}" > out/build_${{matrix.version}}.txt
+            - uses: actions/upload-artifact@v4
+              with: 
+                name: build_${{matrix.version}}
+                path: out/
+            - uses: actions/download-artifact@v4
+              with:
+                name: build_${{matrix.version}}
+                path: matrix-download/
+              
