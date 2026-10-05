@@ -45,3 +45,14 @@ jobs:
             - run: |
                 ls -R download-multiple
                 cat download-multiple/*
+    
+    upload-options:
+        runs-on: ubuntu-slim
+        steps:
+            - run: |
+                mkdir -p out
+                echo "Build 123" >> out/build_123.txt
+            - uses: actions/upload-artifact@v4
+              with:
+                name: upload-options
+                path: out123
