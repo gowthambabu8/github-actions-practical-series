@@ -1,0 +1,14 @@
+name: Dependency Caching
+on: [push, pull_request, workflow_dispatch]
+jobs:
+    cache-basic:
+        runs-on: ubuntu-latest
+        steps:
+            - name: code checkout
+              uses: actions/checkout@v4
+            - name: node setup
+              uses: actions/setup-node@v4
+              with:
+                node-version: 20
+            - run: npm ci
+            - run: npm test
