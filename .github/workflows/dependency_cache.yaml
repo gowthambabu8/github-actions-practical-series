@@ -20,6 +20,7 @@ jobs:
                 path: ~/.npm
                 key: ${{runner.os}}-nodejs-${{hashFiles('node-app/package-lock.json')}} # Linux-node-q93048q093
 
-            - run: npm ci
+            - name: npm continous integration
+              run: npm ci
             - run: npm test
               
