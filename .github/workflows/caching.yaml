@@ -1,5 +1,8 @@
 name: Dependency Cache
 on: [push, pull_request,workflow_dispatch]
+defaults:
+    run:
+        working-directory: node-app
 jobs:
     cache-basic:
         runs-on: ubuntu-latest
