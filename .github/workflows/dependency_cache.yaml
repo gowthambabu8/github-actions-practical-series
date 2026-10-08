@@ -25,3 +25,27 @@ jobs:
               run: npm ci
             - run: npm test
               
+    cache-advance:
+        runs-on: ubuntu-latest
+        steps:
+            - name: code checkout
+              uses: actions/checkout@v4
+
+            - name: node setup
+              uses: actions/setup-node@v4
+              with:
+                node-version: 20
+            - name: cache libraries
+              id: cache-lib
+              uses: actions/cache@v4
+              with:
+                path: ~/.npm
+                key: ${{runner.os}}-nodejs2-${{hashFiles('node-app/package-lock.json')}} # Linux-node-q93048q093
+            
+            - name: cached data is available
+              if: steps.cache-lib.outputs.cache-hit == 'true'
+              run: echo "cached libraries found"
+
+            - name: npm continous integration
+              run: npm ci
+            - run: npm test
