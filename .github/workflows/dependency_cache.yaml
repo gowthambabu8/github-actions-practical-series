@@ -18,7 +18,8 @@ jobs:
               uses: actions/cache@v4
               with:
                 path: ~/.npm
-                key: ${{runner.os}}-nodejs-${{hashFiles('node-app/package-lock.json')}} # Linux-node-q93048q093
+                key: ${{runner.os}}-nodejs1-${{hashFiles('node-app/package-lock.json')}} # Linux-node-q93048q093
+                restore-keys: ${{runner.os}}-nodejs
 
             - name: npm continous integration
               run: npm ci
