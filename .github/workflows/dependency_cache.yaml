@@ -40,7 +40,7 @@ jobs:
               uses: actions/cache@v4
               with:
                 path: ~/.npm
-                key: ${{runner.os}}-nodejs2-${{hashFiles('node-app/package-lock.json')}} # Linux-node-q93048q093
+                key: ${{runner.os}}-nodejs3-${{hashFiles('node-app/package-lock.json')}} # Linux-node-q93048q093
             
             - name: cached data is available
               if: steps.cache-lib.outputs.cache-hit == 'true'
