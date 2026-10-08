@@ -49,3 +49,27 @@ jobs:
             - name: npm continous integration
               run: npm ci
             - run: npm test
+    
+    cache-matrix:
+        runs-on: ubuntu-latest
+        strategy:
+            matrix:
+                version: [18,19,20]
+        steps:
+            - name: code checkout
+              uses: actions/checkout@v4
+
+            - name: node setup
+              uses: actions/setup-node@v4
+              with:
+                node-version: ${{matrix.version}}
+            - name: cache libraries
+              id: cache-lib
+              uses: actions/cache@v4
+              with:
+                path: ~/.npm
+                key: ${{runner.os}}-nodejs-${{matrix.version}}-${{hashFiles('node-app/package-lock.json')}} # Linux-node-20-q93048q093
+
+            - name: npm continous integration
+              run: npm ci
+            - run: npm test
