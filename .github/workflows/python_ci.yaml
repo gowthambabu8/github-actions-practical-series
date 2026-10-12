@@ -1,0 +1,23 @@
+name: Python CI
+on:
+    push:
+        branches: ["main"]
+        paths: ".github/workflows/python_ci.yaml"
+defaults:
+    run:
+        working-directory: python
+jobs:
+    lint:
+        runs-on: ubuntu-latest
+        steps:
+            - name: code checkout
+              uses: actions/checkout@v4
+            - name: setup python
+              uses: actions/setup-python@v5
+              with:
+                python-version: "3.12"
+                cache: pip
+            - name: install required libraries
+              run: pip install -r requirements.py
+            - name: apply linting
+              run: flak8 app tests --max-line-length=100
