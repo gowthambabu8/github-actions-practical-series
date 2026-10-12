@@ -1,5 +1,9 @@
 name: Matrix Strategy
-on: [push, pull_request, workflow_dispatch]
+on: 
+    push:
+        paths: ".github/workflows/matrix-strategy.yaml"
+    pull_request: 
+    workflow_dispatch:
 jobs:
     test:
         runs-on: ubuntu-slim

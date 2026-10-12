@@ -18,6 +18,6 @@ jobs:
                 python-version: "3.12"
                 cache: pip
             - name: install required libraries
-              run: pip install -r requirements.py
+              run: pip install -r requirements.txt
             - name: apply linting
               run: flak8 app tests --max-line-length=100
