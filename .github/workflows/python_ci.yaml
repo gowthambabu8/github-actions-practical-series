@@ -39,7 +39,7 @@ jobs:
             - name: install libraries
               run : pip install -r requirements.txt
             - name: run tests
-              run: pytest --cov=app --cov-report=xml --cov-fail-under=180
+              run: pytest --cov=app --cov-report=xml --cov-fail-under=80
             - run: |
                 pwd
                 ls -la coverage.xml
