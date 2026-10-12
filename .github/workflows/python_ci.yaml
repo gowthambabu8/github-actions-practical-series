@@ -22,4 +22,30 @@ jobs:
             - name: apply linting
               run: flake8 app tests --max-line-length=100
 
-              
+    tests:
+        runs-on: ubuntu-latest
+        needs: lint
+        strategy:
+            matrix:
+                version: ["3.10","3.12"]
+        steps:
+            - name: code checkout
+              uses: actions/checkout@v4
+            - name: setup python
+              uses: actions/setup-python@v5
+              with: 
+                python-version: ${{matrix.version}}
+                cache: pip
+            - name: install libraries
+              run : pip install -r requirements.txt
+            - name: run tests
+              run: pytest --cov=app --cov-report=xml --cov-fail-under=80
+            - name: upload artifacts
+              uses: actions/upload-artifact@v4
+              with: 
+                name: coverage-${{matrix.version}}
+                path: coverage.xml
+            - name: download artifacts
+              uses: actions/download-artifact@v4
+              with:
+                name: coverage-${{matrix.version}}
