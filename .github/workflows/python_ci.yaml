@@ -43,11 +43,12 @@ jobs:
             - run: |
                 pwd
                 ls -la coverage.xml
+                echo ${{github.workspace}}
             - name: upload artifacts
               uses: actions/upload-artifact@v4
               with: 
                 name: coverage-${{matrix.version}}
-                path: coverage.xml
+                path: ${{github.workspace}}/coverage.xml
             - name: download artifacts
               uses: actions/download-artifact@v4
               with:
