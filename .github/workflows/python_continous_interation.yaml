@@ -1,0 +1,25 @@
+name: Python App Continous Integration
+on:
+    push:
+        branches: ["main"]
+        paths: ".github/workflow/python_continous_integration.yaml"
+
+defaults:
+    run:
+        working-directory: python
+
+jobs:
+    lint:
+        runs-on: ubuntu-latest
+        steps:
+            - name: code checkout
+              uses: actions/checkout@v4
+            - name: pyton setup
+              uses: actions/setup-python@v4
+              with:
+                python-version: "3.12"
+                cache: pip
+            - name: dependent libraries setup
+              run: pip install -r requirements.txt
+            - name: apply linting
+              run: flake8 app tests --max-line-length=100
