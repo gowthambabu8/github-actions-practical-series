@@ -19,7 +19,7 @@ def test_create_and_list():
     r = client.post("/tasks", json={"title": "learn actions"})
     assert r.status_code == 201
     assert r.json()["id"] == 1
-    assert len(client.get("/tasks").json()) == 0
+    assert len(client.get("/tasks").json()) == 1
 
 
 def test_delete():
