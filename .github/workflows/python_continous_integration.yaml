@@ -2,7 +2,7 @@ name: Python App Continous Integration
 on:
     push:
         branches: ["main"]
-        paths: ".github/workflow/python_continous_integration.yaml"
+        paths: ".github/workflows/python_continous_integration.yaml"
 
 defaults:
     run:
