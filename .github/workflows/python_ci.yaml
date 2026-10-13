@@ -60,4 +60,12 @@ jobs:
               with:
                 username: ${{vars.DOCKER_USERNAME}}
                 password: ${{secrets.DOCKER_TOKEN}}
+            - uses: docker/build-push-action@v6
+              with:
+                context: .
+                push: true
+                tags: |
+                    ${{vars.DOCKER_USERNAME}}/gh-actions-medium:latest
+                    ${{vars.DOCKER_USERNAME}}/gh-actions-medium:${{github.sha}}
+
 
