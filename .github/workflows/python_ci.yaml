@@ -62,7 +62,7 @@ jobs:
                 password: ${{secrets.DOCKER_TOKEN}}
             - uses: docker/build-push-action@v6
               with:
-                context: .
+                context: ./python
                 push: true
                 tags: |
                     ${{vars.DOCKER_USERNAME}}/gh-actions-medium:latest
