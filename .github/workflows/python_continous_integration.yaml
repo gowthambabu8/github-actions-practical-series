@@ -62,5 +62,14 @@ jobs:
           with:
             username: ${{vars.DOCKER_USERNAME}}
             password: ${{secrets.DOCKER_TOKEN}}
+        - name: build and push
+          uses: docker/build-push-action@v6
+          with:
+            context: ./python
+            push: true
+            tags: |  # happielearning/gh-actions-practical-series:latest , happielearning/gh-actions-practical-series@sha-value
+              ${{vars.DOCKER_USERNAME}}/gh-actions-practical-series:latest
+              ${{vars.DOCKER_USERNAME}}/gh-actions-practical-series@${{github.sha}}
+              
 
 
