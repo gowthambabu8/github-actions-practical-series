@@ -69,7 +69,7 @@ jobs:
             push: true
             tags: |  # happielearning/gh-actions-practical-series:latest , happielearning/gh-actions-practical-series@sha-value
               ${{vars.DOCKER_USERNAME}}/gh-actions-practical-series:latest
-              ${{vars.DOCKER_USERNAME}}/gh-actions-practical-series@${{github.sha}}
+              ${{vars.DOCKER_USERNAME}}/gh-actions-practical-series:${{github.sha}}
               
 
 
