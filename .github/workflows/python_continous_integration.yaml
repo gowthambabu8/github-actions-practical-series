@@ -42,9 +42,10 @@ jobs:
         - run: |
             pwd
             ls -al
+            ${{github.workspace}}
         - name: upload artifact
           uses: actions/upload-artifact@v4
           with: 
             name: "coverage-3.12"
-            path: coverage.xml
+            path: ${{github.workspace}}/python/coverage.xml
 
