@@ -10,5 +10,5 @@ jobs:
     call_python_setup:
         uses: ./.github/workflows/reusable_python_setup.yaml
         with:
-            py-version: "3.12"
+            py-version: "3.10"
 
