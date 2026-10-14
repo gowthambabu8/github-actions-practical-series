@@ -1,5 +1,11 @@
 name: Reusable Python Setup
-on: workflow_call
+on: 
+    workflow_call:
+        inputs:
+            py-version:
+                description: "required python version for setup"
+                required: true
+                type: string
 jobs:
     python-setup:
         runs-on: ubuntu-latest
@@ -11,6 +17,6 @@ jobs:
             - name: setup python and cache
               uses: actions/setup-python@v4
               with:
-                python-version: "3.10"
+                python-version: ${{inputs.py-version}}
                 cache: pip
                 #cache-dependency-path: requirements.txt
