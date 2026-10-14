@@ -7,7 +7,7 @@ jobs:
             - name: code checkout
               uses: actions/checkout@v4
             - name: create cache pip folder
-              run: mkdir -r .cache/pip
+              run: mkdir -p .cache/pip
             - name: setup python and cache
               uses: actions/setup-python@v4
               with:
