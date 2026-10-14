@@ -3,8 +3,10 @@ on:
     push:
         branches: main
         paths: .github/workflows/app1.yaml
+defaults:
+    run:
+        working-directory: python
 jobs:
     call_python_setup:
         uses: ./.github/workflows/reusable_python_setup.yaml
 
-        
