@@ -10,4 +10,3 @@ jobs:
     call_python_setup:
         uses: ./.github/workflows/reusable_python_setup.yaml
 
-
