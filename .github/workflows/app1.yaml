@@ -19,8 +19,7 @@ jobs:
         steps:
             - name: get gh-version
               env:
-                GH-VERSION: ${{needs.call_python_setup.outputs.gh-version}}
+                GH-VERSION: ${{needs.call_python_setup.outputs.gh-version-output}}
               run: echo gh-version is $GH-VERSION
 
 
-              
