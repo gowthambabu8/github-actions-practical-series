@@ -13,3 +13,11 @@ jobs:
             py-version: "3.10"
         secrets:
             DOCKER_TOKEN: ${{secrets.DOCKER_TOKEN}}
+    version:
+        runs-on: ubuntu-latest
+        needs: call_python_setup
+        steps:
+            - name: get gh-version
+              env:
+                GH-VERSION: ${{needs.call_python_setup.outputs.gh-version}}
+              run: echo gh-version is $GH-VERSION

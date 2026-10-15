@@ -10,9 +10,15 @@ on:
             DOCKER_TOKEN:
                 description: "docker PAT required to push image to docker hub"
                 required: true
+        
+        outputs:
+            gh-version-output: ${{jobs.python-setup.outputs.gh-version}}
+        
 jobs:
     python-setup:
         runs-on: ubuntu-latest
+        outputs:
+            gh-version: ${{steps.gh-run-no.outputs.version}}
         steps:
             - name: code checkout
               uses: actions/checkout@v4
@@ -29,3 +35,8 @@ jobs:
                 docker_token_value: ${{secrets.DOCKER_TOKEN}}
               run: |
                 echo "Docker token is $docker_token_value" 
+            - name: generate githun run number
+              id: gh-run-no
+              run: |
+                VERSION=${{GITHUB_RUN_NUMBER}}
+                echo "version=$VERSION" >> "$GITHUB_OUTPUT"
