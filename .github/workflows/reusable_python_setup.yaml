@@ -40,5 +40,5 @@ jobs:
             - name: generate githun run number
               id: gh-run-no
               run: |
-                VERSION=${{GITHUB_RUN_NUMBER}}
+                VERSION=${{github.sha}}
                 echo "version=$VERSION" >> "$GITHUB_OUTPUT"
