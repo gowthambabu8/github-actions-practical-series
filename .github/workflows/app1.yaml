@@ -20,7 +20,7 @@ jobs:
             - uses: actions/checkout@v4
             - name: get gh-version
               env:
-                GH-VERSION: ${{needs.call_python_setup.outputs.gh-version-output}}
-              run: echo gh-version is ${{GH-VERSION}}
+                GH_VERSION: ${{needs.call_python_setup.outputs.gh-version-output}}
+              run: echo gh-version is $GH_VERSION
 
 
