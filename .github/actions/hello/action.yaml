@@ -1,7 +1,14 @@
 name: Hello World
 description: Everyday greetings
+inputs:
+  language:
+    description: Greeting to be given language
+    required: false
+    default: "Java"
 runs:
   using: composite
   steps:
     - run: echo "Hello World"
+      shell: bash
+    - run: echo ${{inputs.language}}
       shell: bash
