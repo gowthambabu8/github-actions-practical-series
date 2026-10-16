@@ -9,5 +9,5 @@ jobs:
         steps:
             - uses: actions/checkout@v4
             - name: calling composite action
-              uses: ./.github/actions/hello/action.yaml
+              uses: ./.github/actions/hello
 
