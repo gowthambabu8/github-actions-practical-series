@@ -9,3 +9,5 @@ defaults:
 jobs:
     call-setup-python:
         uses: ./.github/workflows/reusable_workflow_python.yaml
+        with:
+            py-version: "3.10"
