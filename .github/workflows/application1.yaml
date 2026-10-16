@@ -1,0 +1,11 @@
+name: Application 1
+on:
+    push:
+        branches: main
+        paths: .github/workflows/application1.yaml
+defaults:
+    run:
+        working-directory: python   
+jobs:
+    call-setup-python:
+        uses: ./.github/workflows/resuable_workflow_python.yaml

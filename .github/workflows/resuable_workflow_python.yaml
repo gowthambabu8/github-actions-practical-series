@@ -1,0 +1,14 @@
+name: Reusable Workflow
+on: 
+    workflow_call
+jobs:
+    setup-python:
+        runs-on: ubuntu-latest
+        steps:
+            - name: code checkout
+              uses: actions/checkout@v4
+            - name: setup python
+              uses: actions/setup-python@v4
+              with:
+                python-version: "3.12"
+                cache: pip
