@@ -14,7 +14,7 @@ on:
       outputs:
         call-version:
           description: github sha value
-          value: ${{needs.setup-python.outputs.JOB_VERSION}}
+          value: ${{jobs.setup-python.outputs.JOB_VERSION}}
 
 
 jobs:
