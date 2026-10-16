@@ -7,6 +7,7 @@ jobs:
     action-job:
         runs-on: ubuntu-latest
         steps:
+            - uses: actions/checkout@v4
             - name: calling composite action
               uses: ./.github/actions/hello/action.yaml
 
