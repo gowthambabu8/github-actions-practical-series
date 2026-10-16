@@ -7,6 +7,11 @@ on:
           required: false
           type: string
           default: "3.12"
+      secrets:
+        docker-token:
+          description: PAT for docker access
+          required: true
+
 
 jobs:
     setup-python:
@@ -19,3 +24,5 @@ jobs:
               with:
                 python-version: ${{inputs.py-version}}
                 cache: pip
+            - name: Pushing build to Docker
+              run : echo "printing docker PAT :: ${{secrets.docker-token}}"
