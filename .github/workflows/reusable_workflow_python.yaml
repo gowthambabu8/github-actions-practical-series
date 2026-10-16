@@ -25,6 +25,8 @@ jobs:
                 python-version: ${{inputs.py-version}}
                 cache: pip
             - name: Pushing build to Docker
+              env:
+                DOCKER-TOKEN: ${{secrets.docker-token}}
               run: | 
                 "echo printing docker PAT :: " 
-                ${{secrets.docker-token}}
+                $DOCKER-TOKEN
