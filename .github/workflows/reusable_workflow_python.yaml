@@ -26,4 +26,5 @@ jobs:
                 cache: pip
             - name: Pushing build to Docker
               run : | 
-                "echo printing docker PAT :: " ${{secrets.docker-token}}
+                "echo printing docker PAT :: " 
+                ${{secrets.docker-token}}
