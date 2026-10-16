@@ -1,0 +1,11 @@
+name: Using Actions
+on:
+    push:
+        branches: main
+        paths: "./.github/workflows/workflow_actions.yaml"
+jobs:
+    action-job:
+        runs-on: ubuntu-latest
+        steps:
+            - name: calling composite action
+              uses: ./.github/actions/hello/action.yaml

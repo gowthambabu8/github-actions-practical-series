@@ -1,0 +1,7 @@
+name: Hello World
+description: Everyday greetings
+runs:
+  using: composite
+  steps:
+    - run: echo "Hello World"
+      shell: bash
