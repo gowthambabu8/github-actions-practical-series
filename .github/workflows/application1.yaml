@@ -22,9 +22,9 @@ jobs:
               uses: actions/checkout@v4
             - name: output value
               env:
-                GH-SHA: ${{needs.call-setup-python.outputs.call-version}}
+                GH_SHA: ${{needs.call-setup-python.outputs.call-version}}
               run: |
-                echo "printing output :: $GH-SHA"
+                echo "printing output :: $GH_SHA"
 
 
     
