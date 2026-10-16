@@ -8,4 +8,4 @@ defaults:
         working-directory: python   
 jobs:
     call-setup-python:
-        uses: ./.github/workflows/resuable_workflow_python.yaml
+        uses: ./.github/workflows/reusable_workflow_python.yaml
