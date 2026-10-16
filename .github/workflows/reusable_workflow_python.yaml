@@ -38,5 +38,5 @@ jobs:
             - name: generating output
               id: gen-output-id
               run: |
-                echo "GH_SHA=${{github.sha}}"
+                GH_SHA=${{github.sha}}
                 echo "version=$GH_SHA" >> $GITHUB_OUTPUT
