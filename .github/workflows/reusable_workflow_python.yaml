@@ -28,4 +28,4 @@ jobs:
               env:
                 DOCKER_TOKEN: ${{secrets.docker-token}}
               run: | 
-                "echo printing docker PAT :: $DOCKER_TOKEN "
+                echo "printing docker PAT :: $DOCKER_TOKEN "
