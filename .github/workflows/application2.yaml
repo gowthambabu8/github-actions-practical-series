@@ -1,4 +1,4 @@
-name: Application 1
+name: Application 2
 on:
     push:
         branches: main
