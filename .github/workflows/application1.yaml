@@ -13,5 +13,14 @@ jobs:
             py-version: "3.10"
         secrets:
             docker-token: "sdhgkjsgkl"
+    
+    get-output:
+        runs-on: ubuntu-latest
+        steps:
+            - name: output value
+              env:
+                GH-SHA: ${{needs.call-setup-python.outputs.call-version}}
+              run: |
+                echo "printing output :: $GH-SHA"
 
-            
+    

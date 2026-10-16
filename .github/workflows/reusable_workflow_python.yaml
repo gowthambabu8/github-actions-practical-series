@@ -11,11 +11,17 @@ on:
         docker-token:
           description: PAT for docker access
           required: true
+      outputs:
+        call-version:
+          description: github sha value
+          value: ${{needs.setup-python.outputs.JOB_VERSION}}
 
 
 jobs:
     setup-python:
         runs-on: ubuntu-latest
+        outputs:
+          JOB_VERSION: ${{steps.gen-output-id.outputs.version}}
         steps:
             - name: Code Checkout
               uses: actions/checkout@v4
@@ -29,3 +35,8 @@ jobs:
                 DOCKER_TOKEN: ${{secrets.docker-token}}
               run: | 
                 echo "printing docker PAT :: $DOCKER_TOKEN "
+            - name: generating output
+              id: gen-output-id
+              run: |
+                echo "GH_SHA=${{github.sha}}"
+                echo "version=$GH_SHA" >> $GITHUB_OUTPUT
