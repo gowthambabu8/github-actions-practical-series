@@ -9,5 +9,7 @@ jobs:
         steps:
             - uses: actions/checkout@v4
             - name: calling composite action
+              id: exec_id
               uses: ./.github/actions/hello
-
+            - name: printing final output
+              run: echo ${{steps.exec_id.outputs.result_status}}
