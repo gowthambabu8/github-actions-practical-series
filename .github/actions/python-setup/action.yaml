@@ -1,0 +1,11 @@
+name: Python Setup
+description: Python Setup
+runs:
+  using: composite
+  steps:
+    - name: welcome
+      run: echo "Welcome"
+      shell: bash
+    - name: send off
+      run: echo "Bye Bye"
+      shell: bash
