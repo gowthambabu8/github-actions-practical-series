@@ -11,9 +11,14 @@ jobs:
             - name: code checkout
               uses: actions/checkout@v4
             - name: calling composite action
+              id: get-send-off-msg
               uses: ./.github/actions/python-setup
               with:
                 owner-name: "Gowtham"
+            - name: Printinf send off msg
+              env:
+                message: ${{steps.get-send-off-msg.outputs.msg}}
+              run: echo "Received message is $message"
     another-python-setup:
         runs-on: ubuntu-latest
         steps:
@@ -22,5 +27,5 @@ jobs:
             - name: calling composite action
               uses: ./.github/actions/python-setup
 
-              
+
 

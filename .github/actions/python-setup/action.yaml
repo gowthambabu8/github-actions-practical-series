@@ -4,7 +4,10 @@ inputs:
   owner-name:
     description: Name of the repo owner
     type: string
-    required: true
+outputs:
+  ack:
+    description: send off msg
+    value: ${{steps.see-you.outputs.msg}}
 runs:
   using: composite
   steps:
@@ -17,5 +20,9 @@ runs:
       run: echo "Bye Bye"
       shell: bash
     - name: see you again
-      run: echo "see you again"
+      id: see-you
+      env:
+        OWNER: ${{inputs.owner-name}}
+      run: |
+        echo "msg=see you again $OWNER" >> $GITHUB_OUPUT
       shell: bash
