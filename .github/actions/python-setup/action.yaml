@@ -5,7 +5,6 @@ inputs:
     description: Name of the repo owner
     type: string
     required: true
-    default: "GITHUB"
 runs:
   using: composite
   steps:
