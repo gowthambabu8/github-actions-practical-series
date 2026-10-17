@@ -1,10 +1,18 @@
 name: Python Setup
 description: Python Setup
+inputs:
+  owner-name:
+    description: Name of the repo owner
+    type: string
+    required: false
+    default: "GITHUB"
 runs:
   using: composite
   steps:
     - name: welcome
-      run: echo "Welcome"
+      env:
+        OWNER: ${{inputs.owner-name}}
+      run: echo "Welcome $OWNER"
       shell: bash
     - name: send off
       run: echo "Bye Bye"
