@@ -4,7 +4,7 @@ inputs:
   owner-name:
     description: Name of the repo owner
     type: string
-    required: false
+    required: true
     default: "GITHUB"
 runs:
   using: composite
